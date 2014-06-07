@@ -32,7 +32,7 @@
 
         drawBackground();
 
-        function startGame() {
+        function startGame(heroName) {
             var animations = {
                 idle: [{
                     x: 2,
@@ -81,7 +81,6 @@
             
             function main() {
                 update((Date.now() - time) / 1000);
-
                 //if (countFrames === dificultyLevel) {
                 //    enemies.push(generateEnemy());
                 //    enemiesGenerated++;
