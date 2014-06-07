@@ -186,7 +186,7 @@ function update(mod) {
         for (var i = 0, len = enemies.length; i < len; i++) {
             var currEnemy = enemies[i];
 
-            if (currEnemy.attrs.x <= hero.attrs.x + 70) {
+            if (currEnemy.attrs.x <= hero.attrs.x + 100) {
                 woundEnemy();
             }
         }
@@ -194,14 +194,36 @@ function update(mod) {
     hero.afterFrame(2, function () {
         hero.setAnimation('idle');
     });
-}
+    }
+    else {
+        checkForEnemiesInProximity();
+    }
+
+    function checkForEnemiesInProximity() {
+            for (var i = 0, len = enemies.length; i < len; i++) {
+                var currEnemy = enemies[i];
+
+                if (currEnemy.attrs.x <= hero.attrs.x + 100) {
+                   dealDamageToHero();
+                }
+            }
+    }
+
+    function dealDamageToHero() {
+        if (hero.attrs.health>0) {
+            hero.attrs.health--;
+        }
+        else {
+            hero.destroy();
+        }
+    }
+
     function woundEnemy() {
         if (currEnemy.attrs.health > 0) {
             currEnemy.attrs.health--;
         }
         else {
             enemies[i].destroy();
-            //enemies.splice(i, 1);
         }
     }
     
@@ -262,5 +284,5 @@ function generateEnemy() {
             height: 122
         }]
     };
-    return loadChar(canvas.getWidth() - 70, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 200,50);
+    return loadChar(canvas.getWidth() - 70, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 200,30);
 }
