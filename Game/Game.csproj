@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -69,6 +70,8 @@
     <Content Include="nikisprite.png" />
     <Content Include="scripts\functions.js" />
     <Content Include="index.html" />
+    <Content Include="scripts\kinetic-v4.4.3.js" />
+    <Content Include="scripts\kinetic-v4.4.3.min.js" />
     <Content Include="telerik.png" />
     <Content Include="Web.config" />
   </ItemGroup>

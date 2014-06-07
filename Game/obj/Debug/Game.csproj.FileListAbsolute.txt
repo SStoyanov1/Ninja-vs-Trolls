@@ -10,3 +10,9 @@ E:\Telerik\JS2\TeamWork\Game\bin\Game.pdb
 E:\Telerik\JS2\TeamWork\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
 E:\Telerik\JS2\TeamWork\Game\obj\Debug\Game.dll
 E:\Telerik\JS2\TeamWork\Game\obj\Debug\Game.pdb
+C:\Users\Stoyan\Documents\Visual Studio 2013\Projects\Ninja vs Trolls\Game\bin\Game.dll.config
+C:\Users\Stoyan\Documents\Visual Studio 2013\Projects\Ninja vs Trolls\Game\bin\Game.dll
+C:\Users\Stoyan\Documents\Visual Studio 2013\Projects\Ninja vs Trolls\Game\bin\Game.pdb
+C:\Users\Stoyan\Documents\Visual Studio 2013\Projects\Ninja vs Trolls\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+C:\Users\Stoyan\Documents\Visual Studio 2013\Projects\Ninja vs Trolls\Game\obj\Debug\Game.dll
+C:\Users\Stoyan\Documents\Visual Studio 2013\Projects\Ninja vs Trolls\Game\obj\Debug\Game.pdb
