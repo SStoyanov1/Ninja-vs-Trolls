@@ -16,17 +16,19 @@
         var field = new Kinetic.Layer();
 
         var canvas = new Kinetic.Stage({
-                container: 'gameField',
-                width: 1000,
-                height: 700
-            }),
+            container: 'gameField',
+            width: 1000,
+            height: 700
+        }),
         field = new Kinetic.Layer(),
         time = Date.now(),
         gameSpeed = 300,
         hero = "",
         enemies = [],
         dificultyLevel = 100,
-        maxDificulty = 30;//Less = harder
+        maxDificulty = 30,//Less = harder
+        initialHeroHealth = 1000,
+        healthBar = "";
 
         drawStartPage();
 
@@ -73,7 +75,8 @@
                 }]
             };
 
-            hero = loadChar(canvas.getWidth() / 2, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 100,1000);
+            hero = loadChar(canvas.getWidth() / 2, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 100, initialHeroHealth);
+            //healthBar = drawHeroHealthBar(canvas.getWidth() - 100, 10, 10, 50, "black", "red", initialHeroHealth);
             enemies.push(generateEnemy());
             // http://codepen.io/Umarashidiqi/pen/brphk
             var countFrames = 0,
@@ -97,7 +100,7 @@
                 }
 
                 countFrames++;
-                
+               
                 time = Date.now();
                 requestAnimationFrame(main);
             }

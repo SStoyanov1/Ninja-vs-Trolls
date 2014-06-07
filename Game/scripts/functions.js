@@ -265,6 +265,33 @@ function loadChar(posX, posY, imageSrc, animations, charWidth, speed, charHealth
     return createCharSprite();
 }
 
+function drawHeroHealthBar(width, height, xPos, yPos, outline, lifeColor, initialHeroHealth) {
+    var group = new Kinetic.Group({
+    });
+        var healthOutline = new Kinetic.Rect({
+            x: xPos,
+            y: yPos,
+            width: width,
+            height: height,
+            stroke: outline
+        });
+
+    var healthLine = new Kinetic.Line({
+        points: [xPos, yPos+height/2,xPos + (hero.attrs.health / initialHeroHealth) * width , yPos + height / 2],
+        stroke: lifeColor,
+        strokeWidth: 10
+    });
+
+    group.add(healthLine);
+    group.add(healthOutline);
+
+    field.add(group);
+    canvas.add(field);
+
+    return group;
+
+}
+
 function generateEnemy() {
     var animations = {
         idle: [{
