@@ -1,4 +1,10 @@
-﻿var keysDown = {};
+﻿function drawBackground() {
+    var svg = document.getElementById('backgroundSvg');
+    svg.setAttributeNS(null, 'height', '700');
+    svg.setAttributeNS(null, 'width', '1000');
+}
+
+var keysDown = {};
 
 window.addEventListener('keydown', function (e) {
     if ([38, 40].indexOf(e.keyCode) > -1) {
