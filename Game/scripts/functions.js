@@ -7,7 +7,7 @@ function drawStartPage() {
         text: 'NINJA vs TROLLS\n\nTelerik Academy has been attacked by vicious trolls. The mission to save it is entrusted to the Trainers. Choose the one to fight with them.',
         fontSize: 24,
         fontFamily: 'Calibri',
-        fill: '#555',
+        fill: 'white',
         width: 380,
         padding: 20,
         align: 'center'
@@ -16,13 +16,14 @@ function drawStartPage() {
     var rect = new Kinetic.Rect({
         x: 300,
         y: 120,
-        stroke: 'blue',
+        stroke: 'yellowgreen',
         strokeWidth: 5,
-        fill: 'lightblue',
+        color: '#fff',
+        fill: 'black',
         width: 380,
         height: 220,
-        shadowColor: 'black',
-        shadowBlur: 10,
+        shadowColor: 'white',
+        shadowBlur: 5,
         shadowOffset: { x: 10, y: 10 },
         shadowOpacity: 0.2,
         cornerRadius: 10
@@ -34,7 +35,7 @@ function drawStartPage() {
         text: 'Trainer Niki',
         fontSize: 24,
         fontFamily: 'Calibri',
-        fill: '#555',
+        fill: 'white',
         width: 380,
         padding: 20,
         align: 'left'
