@@ -12,16 +12,22 @@ window.addEventListener('keyup', function (e) {
 });
 
 function update(mod) {
-
     if (37 in keysDown) {
-        player.currentState = 'left';
-        player.x -= player.speed * mod;
-        updateAnimation(player.stateAnimations[player.currentState]);
+        hero.attrs.x -= gameSpeed * mod;
+        //player.currentState = 'left';
+        //player.x -= player.speed * mod;
+        //updateAnimation(player.stateAnimations[player.currentState]);
     }
     else if (39 in keysDown) {
-        player.currentState = 'right';
-        player.x += player.speed * mod;
-        updateAnimation(player.stateAnimations[player.currentState]);
+        hero.attrs.x += gameSpeed * mod;
+        //player.currentState = 'right';
+        //player.x += player.speed * mod;
+        //updateAnimation(player.stateAnimations[player.currentState]);
+    } else if (32 in keysDown) {
+        hero.setAnimation('punch');
+        hero.afterFrame(2, function () {
+            hero.setAnimation('idle');
+        });
     }
 
     //if (37 in keysDown) { //left
@@ -50,62 +56,71 @@ function update(mod) {
 }
 
 function render() {
-    field.clearRect(0, 0, canvas.width, canvas.height);
-    drawSprite(player);
+    //field.clearRect(0, 0, canvas.width, canvas.height);
+    field.clear();
+    // add the shape to the layer
+    //field.add(hero);
+
+    // add the layer to the stage
+    //canvas.add(field);
+
+    // start sprite animation
+    //hero.start();
+    //drawSprite(player);
     //field.fillStyle = mySprite.color;
     //field.fillRect(mySprite.x, mySprite.y, mySprite.width, mySprite.height);
 }
 
-function imageLoaded() {
-    game.imagesLoaded++;
-}
+//function imageLoaded() {
+//    game.imagesLoaded++;
+//}
 
-function Tileset(image, tileWidth, tileHeight) {
-    this.image = new Image();
-    game.images++;
-    this.image.onload = imageLoaded;
-    this.image.src = image;
-    this.tileWidth = tileWidth;
-    this.tileHeight = tileHeight;
-}
+//function Tileset(image, tileWidth, tileHeight) {
+//    this.image = new Image();
+//    game.images++;
+//    this.image.onload = imageLoaded;
+//    this.image.src = image;
+//    this.tileWidth = tileWidth;
+//    this.tileHeight = tileHeight;
+//}
 
-function Animation(tileset, frames, frameDuration) {
-    this.tileset = tileset;
-    this.frames = frames;
-    this.currentFrame = 0;
-    this.frameTimer = Date.now();
-    this.frameDuration = frameDuration;
-}
+//function Animation(tileset, frames, frameDuration) {
+//    this.tileset = tileset;
+//    this.frames = frames;
+//    this.currentFrame = 0;
+//    this.frameTimer = Date.now();
+//    this.frameDuration = frameDuration;
+//}
 
-function updateAnimation(anim) {
-    if (Date.now() - anim.frameTimer > anim.frameDuration) {
-        if (anim.currentFrame < anim.frames.length - 1) anim.currentFrame++;
-        else anim.currentFrame = 0;
-        anim.frameTimer = Date.now();
-    }
-}
+//function updateAnimation(anim) {
+//    if (Date.now() - anim.frameTimer > anim.frameDuration) {
+//        if (anim.currentFrame < anim.frames.length - 1) anim.currentFrame++;
+//        else anim.currentFrame = 0;
+//        anim.frameTimer = Date.now();
+//    }
+//}
 
-function Sprite(stateAnimations, startingState, x, y, width, height, speed) {
-    this.stateAnimations = stateAnimations;
-    this.currentState = startingState;
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.speed = speed;
-}
+//function Sprite(stateAnimations, startingState, x, y, width, height, speed) {
+//    this.stateAnimations = stateAnimations;
+//    this.currentState = startingState;
+//    this.x = x;
+//    this.y = y;
+//    this.width = width;
+//    this.height = height;
+//    this.speed = speed;
+//}
 
-function drawSprite(sprite) {
-    field.drawImage(
-        sprite.stateAnimations[sprite.currentState].tileset.image,
-        sprite.stateAnimations[sprite.currentState].frames[sprite.stateAnimations[sprite.currentState].currentFrame].split(',')[0] * sprite.stateAnimations[sprite.currentState].tileset.tileWidth,
-        sprite.stateAnimations[sprite.currentState].frames[sprite.stateAnimations[sprite.currentState].currentFrame].split(',')[1] * sprite.stateAnimations[sprite.currentState].tileset.tileHeight,
-        sprite.stateAnimations[sprite.currentState].tileset.tileWidth,
-        sprite.stateAnimations[sprite.currentState].tileset.tileHeight,
-        Math.round(sprite.x),
-        Math.round(sprite.y),
-        sprite.width,
-        sprite.height
-    );
-}
+//function drawSprite(sprite) {
+//    field.drawImage(
+//        sprite.stateAnimations[sprite.currentState].tileset.image,
+//        sprite.stateAnimations[sprite.currentState].frames[sprite.stateAnimations[sprite.currentState].currentFrame].split(',')[0] * sprite.stateAnimations[sprite.currentState].tileset.tileWidth,
+//        sprite.stateAnimations[sprite.currentState].frames[sprite.stateAnimations[sprite.currentState].currentFrame].split(',')[1] * sprite.stateAnimations[sprite.currentState].tileset.tileHeight,
+//        sprite.stateAnimations[sprite.currentState].tileset.tileWidth,
+//        sprite.stateAnimations[sprite.currentState].tileset.tileHeight,
+//        Math.round(sprite.x),
+//        Math.round(sprite.y),
+//        sprite.width,
+//        sprite.height
+//    );
+//}
 
