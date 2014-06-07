@@ -35,6 +35,14 @@
             height: 130
         });
 
+        nikiImg.on('mouseover', function () {
+            document.body.style.cursor = 'pointer';
+        });
+
+        nikiImg.on('mouseout', function () {
+            document.body.style.cursor = 'default';
+        });
+
         field.add(nikiImg);
 
         canvas.add(field);
@@ -50,6 +58,14 @@
             height: 130
         });
 
+        donchoImg.on('mouseover', function () {
+            document.body.style.cursor = 'pointer';
+        });
+
+        donchoImg.on('mouseout', function () {
+            document.body.style.cursor = 'default';
+        });
+
         field.add(donchoImg);
 
         canvas.add(field);
@@ -63,6 +79,14 @@
             image: ivoImage,
             width: 110,
             height: 130
+        });
+
+        ivoImg.on('mouseover', function () {
+            document.body.style.cursor = 'pointer';
+        });
+
+        ivoImg.on('mouseout', function () {
+            document.body.style.cursor = 'default';
         });
 
         field.add(ivoImg);
