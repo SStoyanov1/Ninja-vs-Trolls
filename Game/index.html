@@ -7,19 +7,21 @@
 </head>
 <body>
     <svg id="backgroundSvg">
-        <image xlink:href="telerik.png" x="0" y="0" width="1000px" height="700px"></image>
+        <!--<image xlink:href="telerik.png" x="0" y="0" width="1000px" height="700px"></image>-->
     </svg>
     <div id="gameField"></div>
     <script src="scripts/functions.js"></script>
     <script>
+        drawBackground();
+
         var canvas = new Kinetic.Stage({
-            container: 'gameField',
-            width: 1000,
-            height: 700
-        }),
-        field = new Kinetic.Layer(),
-        time = Date.now(),
-        gameSpeed = 300;
+                container: 'gameField',
+                width: 1000,
+                height: 700
+            }),
+            field = new Kinetic.Layer(),
+            time = Date.now(),
+            gameSpeed = 300;
 
         var animations = {
             idle: [{
