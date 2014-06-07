@@ -109,8 +109,12 @@ function drawStartPage() {
         cornerRadius: 10
     });
 
+    var svg = document.getElementById('backgroundSvg');
+
     donchoText.on('click', function () {
-        console.log('you clicked on the circle!');
+        removeElement(svg);
+        drawDojo();
+        startGame('donchoSprite.png');
     });
 
     // add the shapes to the layer
@@ -123,6 +127,11 @@ function drawStartPage() {
     field.add(trainerIvo);
     field.add(ivoText);
     canvas.add(field);
+
+    function removeElement(element) {
+        var elementToRemove = element;
+        elementToRemove.parentNode.removeChild(elementToRemove);
+    }
 }
 
 function drawBackground() {
