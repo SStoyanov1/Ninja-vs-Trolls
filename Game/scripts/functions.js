@@ -25,23 +25,56 @@
     var ivoRectangle = drawKineticRect(590, 360, '#fff', 5, '#ddd', 'black', 140, 180);
     ivoRectangle.setCornerRadius(10);
 
-    var imageObj = new Image();
-    imageObj.onload = function () {
-        var yoda = new Kinetic.Image({
-            x: 240,
-            y: 370,
-            image: imageObj,
-            width: 120,
+    var nikiImage = new Image();
+    nikiImage.onload = function () {
+        var nikiImg = new Kinetic.Image({
+            x: 245,
+            y: 375,
+            image: nikiImage,
+            width: 110,
             height: 130
         });
 
-        field.add(yoda);
+        field.add(nikiImg);
 
         canvas.add(field);
-
     };
 
-    imageObj.src = 'ninja-relaxed.jpg';
+    var donchoImage = new Image();
+    donchoImage.onload = function () {
+        var donchoImg = new Kinetic.Image({
+            x: 425,
+            y: 375,
+            image: donchoImage,
+            width: 110,
+            height: 130
+        });
+
+        field.add(donchoImg);
+
+        canvas.add(field);
+    };
+
+    var ivoImage = new Image();
+    ivoImage.onload = function () {
+        var ivoImg = new Kinetic.Image({
+            x: 605,
+            y: 375,
+            image: ivoImage,
+            width: 110,
+            height: 130
+        });
+
+        field.add(ivoImg);
+
+        canvas.add(field);
+    };
+
+    nikiImage.src = 'trainerNiki.jpg';
+
+    donchoImage.src = 'trainerDoncho.jpg';
+
+    ivoImage.src = 'trainerIvo.jpg';
 
     var svg = document.getElementById('backgroundSvg');
 
