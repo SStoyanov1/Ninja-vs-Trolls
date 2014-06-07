@@ -113,7 +113,7 @@ function drawStartPage() {
 
     donchoText.on('click', function () {
         removeElement(svg);
-        drawDojo();
+        //drawDojo();
         startGame('donchoSprite.png');
     });
 
@@ -186,7 +186,7 @@ function update(mod) {
             var currEnemy = enemies[i];
 
             if (currEnemy.attrs.x <= hero.attrs.x + 70) {
-                console.log("hit");
+                woundEnemy();
             }
         }
 
@@ -194,7 +194,15 @@ function update(mod) {
         hero.setAnimation('idle');
     });
 }
-
+    function woundEnemy() {
+        if (currEnemy.attrs.health > 0) {
+            currEnemy.attrs.health--;
+        }
+        else {
+            enemies[i].destroy();
+            enemies.splice(i, 1);
+        }
+    }
     
 }
 
@@ -202,7 +210,7 @@ function render() {
     //field.clear();
 }
 
-function loadChar(posX, posY, imageSrc, animations, charWidth, speed) {
+function loadChar(posX, posY, imageSrc, animations, charWidth, speed, charHealth) {
     var imageObj = new Image()
     imageObj.src = imageSrc;
 
@@ -215,6 +223,7 @@ function loadChar(posX, posY, imageSrc, animations, charWidth, speed) {
             animations: animations,
             frameRate: speed,
             totalWidth: charWidth,
+            health:charHealth,
             index: 0
         });
 
@@ -252,5 +261,5 @@ function generateEnemy() {
             height: 122
         }]
     };
-    return loadChar(canvas.getWidth() - 70, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 200);
+    return loadChar(canvas.getWidth() - 70, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 200,50);
 }
