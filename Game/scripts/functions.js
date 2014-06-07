@@ -1,5 +1,131 @@
-﻿function drawBackground() {
+﻿field = new Kinetic.Layer();
+
+function drawStartPage() {
+    var complexText = new Kinetic.Text({
+        x: 300,
+        y: 120,
+        text: 'NINJA vs TROLLS\n\nTelerik Academy has been attacked by vicious trolls. The mission to save it is entrusted to the Trainers. Choose the one to fight with them.',
+        fontSize: 24,
+        fontFamily: 'Calibri',
+        fill: '#555',
+        width: 380,
+        padding: 20,
+        align: 'center'
+    });
+
+    var rect = new Kinetic.Rect({
+        x: 300,
+        y: 120,
+        stroke: 'blue',
+        strokeWidth: 5,
+        fill: 'lightblue',
+        width: 380,
+        height: 220,
+        shadowColor: 'black',
+        shadowBlur: 10,
+        shadowOffset: { x: 10, y: 10 },
+        shadowOpacity: 0.2,
+        cornerRadius: 10
+    });
+
+    var nikiText = new Kinetic.Text({
+        x: 300,
+        y: 360,
+        text: 'Trainer Niki',
+        fontSize: 24,
+        fontFamily: 'Calibri',
+        fill: '#555',
+        width: 380,
+        padding: 20,
+        align: 'left'
+    });
+
+    var trainerNiki = new Kinetic.Rect({
+        x: 300,
+        y: 360,
+        stroke: 'blue',
+        strokeWidth: 5,
+        fill: '#ddd',
+        width: 380,
+        height: 60,
+        shadowColor: 'black',
+        shadowBlur: 10,
+        shadowOffset: { x: 10, y: 10 },
+        shadowOpacity: 0.2,
+        cornerRadius: 10
+    });
+
+    var donchoText = new Kinetic.Text({
+        x: 300,
+        y: 440,
+        text: 'Trainer Doncho',
+        fontSize: 24,
+        fontFamily: 'Calibri',
+        fill: '#555',
+        width: 380,
+        padding: 20,
+        align: 'left'
+    });
+
+    var trainerDoncho = new Kinetic.Rect({
+        x: 300,
+        y: 440,
+        stroke: 'blue',
+        strokeWidth: 5,
+        fill: '#ddd',
+        width: 380,
+        height: 60,
+        shadowColor: 'black',
+        shadowBlur: 10,
+        shadowOffset: { x: 10, y: 10 },
+        shadowOpacity: 0.2,
+        cornerRadius: 10
+    });
+
+        var ivoText = new Kinetic.Text({
+        x: 300,
+        y: 520,
+        text: 'Trainer Ivo',
+        fontSize: 24,
+        fontFamily: 'Calibri',
+        fill: '#555',
+        width: 380,
+        padding: 20,
+        align: 'left'
+    });
+
+    var trainerIvo = new Kinetic.Rect({
+        x: 300,
+        y: 520,
+        stroke: 'blue',
+        strokeWidth: 5,
+        fill: '#ddd',
+        width: 380,
+        height: 60,
+        shadowColor: 'black',
+        shadowBlur: 10,
+        shadowOffset: { x: 10, y: 10 },
+        shadowOpacity: 0.2,
+        cornerRadius: 10
+    });
+
+    // add the shapes to the layer
+    field.add(rect);
+    field.add(complexText);
+    field.add(trainerNiki);
+    field.add(nikiText);
+    field.add(trainerDoncho);
+    field.add(donchoText);
+    field.add(trainerIvo);
+    field.add(ivoText);
+    canvas.add(field);
+
+
+}
+
+function drawBackground() {
     var svg = document.getElementById('backgroundSvg');
+    svg.style.display = 'block';
     svg.setAttributeNS(null, 'height', '700');
     svg.setAttributeNS(null, 'width', '1000');
 }
