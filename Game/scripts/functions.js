@@ -200,7 +200,7 @@ function update(mod) {
         }
         else {
             enemies[i].destroy();
-            enemies.splice(i, 1);
+            //enemies.splice(i, 1);
         }
     }
     
