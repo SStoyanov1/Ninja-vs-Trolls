@@ -57,6 +57,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="animation.gif" />
+    <Content Include="background.jpg" />
+    <Content Include="headone.jpg" />
+    <Content Include="headone.png" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -68,11 +72,19 @@
   <ItemGroup>
     <Content Include="css\styles.css" />
     <Content Include="nikisprite.png" />
+    <Content Include="scripts\background.js" />
     <Content Include="scripts\functions.js" />
     <Content Include="index.html" />
     <Content Include="scripts\kinetic-v4.4.3.js" />
     <Content Include="scripts\kinetic-v4.4.3.min.js" />
+    <Content Include="scripts\raphael-min.js" />
+    <Content Include="scripts\raphael.js" />
+    <Content Include="shuriken.png" />
+    <Content Include="super_ninja_for_frame.png" />
+    <Content Include="telerik-left.png" />
+    <Content Include="telerik-right.png" />
     <Content Include="telerik.png" />
+    <Content Include="tv.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
