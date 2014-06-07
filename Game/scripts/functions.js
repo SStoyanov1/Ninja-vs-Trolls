@@ -28,11 +28,11 @@
     var imageObj = new Image();
     imageObj.onload = function () {
         var yoda = new Kinetic.Image({
-            x: 200,
-            y: 50,
+            x: 240,
+            y: 370,
             image: imageObj,
-            width: 106,
-            height: 118
+            width: 120,
+            height: 130
         });
 
         field.add(yoda);
@@ -41,7 +41,7 @@
 
     };
 
-    imageObj.src = '';
+    imageObj.src = 'ninja-relaxed.jpg';
 
     var svg = document.getElementById('backgroundSvg');
 
