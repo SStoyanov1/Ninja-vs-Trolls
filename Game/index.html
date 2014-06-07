@@ -12,17 +12,21 @@
     <div id="gameField"></div>
     <script src="scripts/functions.js"></script>
     <script>
-        drawBackground();
+        var field = new Kinetic.Layer();
 
         var canvas = new Kinetic.Stage({
-            container: 'gameField',
-            width: 1000,
-            height: 700
-        }),
-        field = new Kinetic.Layer(),
-        time = Date.now(),
-        gameSpeed = 300,
-        hero = "";
+                container: 'gameField',
+                width: 1000,
+                height: 700
+            }),
+            field = new Kinetic.Layer(),
+            time = Date.now(),
+            gameSpeed = 300,
+            hero = "";
+
+        drawStartPage();
+
+        drawBackground();
 
         function startGame() {
             var animations = {
