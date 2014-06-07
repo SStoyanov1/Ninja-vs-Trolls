@@ -15,6 +15,7 @@
         var field = new Kinetic.Layer();
 
         var canvas = new Kinetic.Stage({
+<<<<<<< HEAD
                 container: 'gameField',
                 width: 1000,
                 height: 700
@@ -27,6 +28,20 @@
         drawStartPage();
 
         drawBackground();
+=======
+            container: 'gameField',
+            width: 1000,
+            height: 700
+        }),
+        field = new Kinetic.Layer(),
+        time = Date.now(),
+        gameSpeed = 300,
+        hero = "",
+        enemies = [],
+        dificultyLevel = 100,
+        maxDificulty = 30;//Less = harder
+
+>>>>>>> 1ce69e43349422b85862d6ac01f72448827f653b
 
         function startGame() {
             var animations = {
@@ -69,12 +84,32 @@
                 }]
             };
 
-            hero = loadChar(canvas.getWidth() / 2, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70);
-            enemies = generateEnemies();
+            hero = loadChar(canvas.getWidth() / 2, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 100);
+            enemies.push(generateEnemy());
             // http://codepen.io/Umarashidiqi/pen/brphk
-
+            var countFrames = 0,
+                enemiesGenerated = 0;
+            
             function main() {
                 update((Date.now() - time) / 1000);
+
+                //if (countFrames === dificultyLevel) {
+                //    enemies.push(generateEnemy());
+                //    enemiesGenerated++;
+                //    countFrames = 0;
+
+                //    if (enemiesGenerated === 5) {
+                //        dificultyLevel -= 10;
+
+                //        if (dificultyLevel <= maxDificulty) {
+                //            dificultyLevel = maxDificulty;
+                //        }
+                //        enemiesGenerated = 0;
+                //    }
+                //}
+
+                //countFrames++;
+                
                 time = Date.now();
                 requestAnimationFrame(main);
             }
