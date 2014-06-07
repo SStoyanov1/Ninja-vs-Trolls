@@ -15,24 +15,10 @@
         var field = new Kinetic.Layer();
 
         var canvas = new Kinetic.Stage({
-<<<<<<< HEAD
                 container: 'gameField',
                 width: 1000,
                 height: 700
             }),
-            field = new Kinetic.Layer(),
-            time = Date.now(),
-            gameSpeed = 300,
-            hero = "";
-
-        drawStartPage();
-
-        drawBackground();
-=======
-            container: 'gameField',
-            width: 1000,
-            height: 700
-        }),
         field = new Kinetic.Layer(),
         time = Date.now(),
         gameSpeed = 300,
@@ -41,7 +27,9 @@
         dificultyLevel = 100,
         maxDificulty = 30;//Less = harder
 
->>>>>>> 1ce69e43349422b85862d6ac01f72448827f653b
+        drawStartPage();
+
+        drawBackground();
 
         function startGame() {
             var animations = {
