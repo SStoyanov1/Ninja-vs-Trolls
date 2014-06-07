@@ -9,6 +9,7 @@ svg {
     height: 700px;
     position:absolute;
     background-image: url('../telerik.png');
+    display: none;
 }
 
 #gameField {
