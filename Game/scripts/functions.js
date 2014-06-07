@@ -109,6 +109,10 @@ function drawStartPage() {
         cornerRadius: 10
     });
 
+    donchoText.on('click', function () {
+        console.log('you clicked on the circle!');
+    });
+
     // add the shapes to the layer
     field.add(rect);
     field.add(complexText);
@@ -119,8 +123,6 @@ function drawStartPage() {
     field.add(trainerIvo);
     field.add(ivoText);
     canvas.add(field);
-
-
 }
 
 function drawBackground() {
