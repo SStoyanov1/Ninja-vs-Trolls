@@ -1,138 +1,137 @@
-﻿field = new Kinetic.Layer();
+﻿function drawStartPage() {
+    var field = new Kinetic.Layer();
 
-function drawStartPage() {
-    var complexText = new Kinetic.Text({
-        x: 300,
-        y: 120,
-        text: 'NINJA vs TROLLS\n\nTelerik Academy has been attacked by vicious trolls. The mission to save it is entrusted to the Trainers. Choose the one to fight with them.',
-        fontSize: 24,
-        fontFamily: 'Calibri',
-        fill: 'white',
-        width: 380,
-        padding: 20,
-        align: 'center'
-    });
+    var ninjaTitle = drawKineticText(270, 120, 'NINJAS', 42, 'Warnock Pro', 'yellowgreen', 380, 20, 'left');
+    var vsTitle = drawKineticText(440, 120, 'vs', 42, 'Warnock Pro', 'red', 380, 20, 'left');
+    var trollsTitle = drawKineticText(500, 120, 'TROLLS', 42, 'Warnock Pro', 'yellowgreen', 380, 20, 'left');
+    ninjaTitle.setFontStyle('bold');
+    var introText = drawKineticText(250, 180, 'Telerik Academy\nhas been attacked by vicious trolls. The mission to save it is entrusted to the Trainers.Choose the one to fight with them.', 24, 'Century Gothic', 'white', 460, 10, 'center');
 
-    var rect = new Kinetic.Rect({
-        x: 300,
-        y: 120,
-        stroke: 'yellowgreen',
-        strokeWidth: 5,
-        color: '#fff',
-        fill: 'black',
-        width: 380,
-        height: 220,
-        shadowColor: 'white',
-        shadowBlur: 5,
-        shadowOffset: { x: 10, y: 10 },
-        shadowOpacity: 0.2,
-        cornerRadius: 10
-    });
+    var introRectangle = drawKineticRect(230, 120, 'yellowgreen', 5, '#fff', 'black', 500, 220);
+    introRectangle.setCornerRadius(10);
 
-    var nikiText = new Kinetic.Text({
-        x: 300,
-        y: 360,
-        text: 'Trainer Niki',
-        fontSize: 24,
-        fontFamily: 'Calibri',
-        fill: 'white',
-        width: 380,
-        padding: 20,
-        align: 'left'
-    });
+    var nikiText = drawKineticText(300, 360, 'Trainer Niki', 24, 'Calibri', 'white', 380, 20, 'left');
 
-    var trainerNiki = new Kinetic.Rect({
-        x: 300,
-        y: 360,
-        stroke: 'blue',
-        strokeWidth: 5,
-        fill: '#ddd',
-        width: 380,
-        height: 60,
-        shadowColor: 'black',
-        shadowBlur: 10,
-        shadowOffset: { x: 10, y: 10 },
-        shadowOpacity: 0.2,
-        cornerRadius: 10
-    });
+    var nikiRectangle = drawKineticRect(230, 360, '#fff', 5, "#fff", 'black', 140, 180);
+    nikiRectangle.setCornerRadius(10);
 
-    var donchoText = new Kinetic.Text({
-        x: 300,
-        y: 440,
-        text: 'Trainer Doncho',
-        fontSize: 24,
-        fontFamily: 'Calibri',
-        fill: '#555',
-        width: 380,
-        padding: 20,
-        align: 'left'
-    });
+    var donchoText = drawKineticText(300, 440, 'Trainer Doncho', 24, 'Calibri', '#555', 380, 20, 'left');
 
-    var trainerDoncho = new Kinetic.Rect({
-        x: 300,
-        y: 440,
-        stroke: 'blue',
-        strokeWidth: 5,
-        fill: '#ddd',
-        width: 380,
-        height: 60,
-        shadowColor: 'black',
-        shadowBlur: 10,
-        shadowOffset: { x: 10, y: 10 },
-        shadowOpacity: 0.2,
-        cornerRadius: 10
-    });
+    var donchoRectangle = drawKineticRect(410, 360, '#fff', 5, '#ddd', 'black', 140, 180);
+    donchoRectangle.setCornerRadius(10);
 
-        var ivoText = new Kinetic.Text({
-        x: 300,
-        y: 520,
-        text: 'Trainer Ivo',
-        fontSize: 24,
-        fontFamily: 'Calibri',
-        fill: '#555',
-        width: 380,
-        padding: 20,
-        align: 'left'
-    });
+    var ivoText = drawKineticText(199, 200, 'Trainer Ivo', 24, 'Calibri', '#555', 380, 20, 'left');
 
-    var trainerIvo = new Kinetic.Rect({
-        x: 300,
-        y: 520,
-        stroke: 'blue',
-        strokeWidth: 5,
-        fill: '#ddd',
-        width: 380,
-        height: 60,
-        shadowColor: 'black',
-        shadowBlur: 10,
-        shadowOffset: { x: 10, y: 10 },
-        shadowOpacity: 0.2,
-        cornerRadius: 10
-    });
+    var ivoRectangle = drawKineticRect(590, 360, '#fff', 5, '#ddd', 'black', 140, 180);
+    ivoRectangle.setCornerRadius(10);
+
+    var imageObj = new Image();
+    imageObj.onload = function () {
+        var yoda = new Kinetic.Image({
+            x: 200,
+            y: 50,
+            image: imageObj,
+            width: 106,
+            height: 118
+        });
+
+        field.add(yoda);
+
+        canvas.add(field);
+
+    };
+
+    imageObj.src = '';
 
     var svg = document.getElementById('backgroundSvg');
 
-    donchoText.on('click', function () {
-        removeElement(svg);
-        //drawDojo();
-        startGame('donchoSprite.png');
-    });
+    var rectangles = [nikiRectangle, donchoRectangle, ivoRectangle];
+
+    for (var i = 0; i < rectangles.length; i++) {
+        rectangles[i].on('mouseover', function () {
+            document.body.style.cursor = 'pointer';
+        });
+
+        rectangles[i].on('mouseout', function () {
+            document.body.style.cursor = 'default';
+        });
+
+        rectangles[i].on('click', function () {
+            removeIntro();
+            //drawDojo();
+            startGame('donchoSprite.png');
+        });
+    }
+
+    //donchoText.on('click', function () {
+    //    removeIntro();
+    //    //drawDojo();
+    //    startGame('donchoSprite.png');
+    //});
+    //
+    //
+    //
+    //ivoText.on('click', function () {
+    //    removeIntro();
+    //    //drawDojo();
+    //    startGame('ivoSprite.png');
+    //});
 
     // add the shapes to the layer
-    field.add(rect);
-    field.add(complexText);
-    field.add(trainerNiki);
-    field.add(nikiText);
-    field.add(trainerDoncho);
-    field.add(donchoText);
-    field.add(trainerIvo);
-    field.add(ivoText);
+    field.add(introRectangle);
+    field.add(introText);
+    field.add(nikiRectangle);
+    field.add(ninjaTitle);
+    field.add(vsTitle);
+    field.add(trollsTitle);
+    //field.add(nikiText);
+    field.add(donchoRectangle);
+    //field.add(donchoText);
+    field.add(ivoRectangle);
+    //field.add(ivoText);
     canvas.add(field);
+
+    function removeIntro() {
+        removeElement(svg);
+        field.clear(0, 0, 1000, 700);
+    }
 
     function removeElement(element) {
         var elementToRemove = element;
         elementToRemove.parentNode.removeChild(elementToRemove);
     }
+
+
+    function drawKineticRect(x, y, stroke, strokeWidth, color, fill, width, height) {
+        var rectangle = new Kinetic.Rect({
+            x: x,
+            y: y,
+            stroke: stroke,
+            strokeWidth: strokeWidth,
+            color: color,
+            fill: fill,
+            width: width,
+            height: height
+        });
+
+        return rectangle;
+    }
+
+    function drawKineticText(x, y, text, fontSize, fontFamily, fill, width, padding, align) {
+        var kineticText = new Kinetic.Text({
+            x: x,
+            y: y,
+            text: text,
+            fontSize: fontSize,
+            fontFamily: fontFamily,
+            fill: fill,
+            width: width,
+            padding: padding,
+            align: align
+        });
+
+        return kineticText;
+    };
 }
 
 function drawBackground() {
@@ -182,7 +181,7 @@ function update(mod) {
 
     if (32 in keysDown) {
         hero.setAnimation('punch');
-        
+
         for (var i = 0, len = enemies.length; i < len; i++) {
             var currEnemy = enemies[i];
 
@@ -191,26 +190,26 @@ function update(mod) {
             }
         }
 
-    hero.afterFrame(2, function () {
-        hero.setAnimation('idle');
-    });
+        hero.afterFrame(2, function () {
+            hero.setAnimation('idle');
+        });
     }
     else {
         checkForEnemiesInProximity();
     }
 
     function checkForEnemiesInProximity() {
-            for (var i = 0, len = enemies.length; i < len; i++) {
-                var currEnemy = enemies[i];
+        for (var i = 0, len = enemies.length; i < len; i++) {
+            var currEnemy = enemies[i];
 
-                if (currEnemy.attrs.x <= hero.attrs.x + 100) {
-                   dealDamageToHero();
-                }
+            if (currEnemy.attrs.x <= hero.attrs.x + 100) {
+                dealDamageToHero();
             }
+        }
     }
 
     function dealDamageToHero() {
-        if (hero.attrs.health>0) {
+        if (hero.attrs.health > 0) {
             hero.attrs.health--;
         }
         else {
@@ -226,7 +225,7 @@ function update(mod) {
             enemies[i].destroy();
         }
     }
-    
+
 }
 
 function render() {
@@ -246,7 +245,7 @@ function loadChar(posX, posY, imageSrc, animations, charWidth, speed, charHealth
             animations: animations,
             frameRate: speed,
             totalWidth: charWidth,
-            health:charHealth,
+            health: charHealth,
             index: 0
         });
 
@@ -268,16 +267,16 @@ function loadChar(posX, posY, imageSrc, animations, charWidth, speed, charHealth
 function drawHeroHealthBar(width, height, xPos, yPos, outline, lifeColor, initialHeroHealth) {
     var group = new Kinetic.Group({
     });
-        var healthOutline = new Kinetic.Rect({
-            x: xPos,
-            y: yPos,
-            width: width,
-            height: height,
-            stroke: outline
-        });
+    var healthOutline = new Kinetic.Rect({
+        x: xPos,
+        y: yPos,
+        width: width,
+        height: height,
+        stroke: outline
+    });
 
     var healthLine = new Kinetic.Line({
-        points: [xPos, yPos+height/2,xPos + (hero.attrs.health / initialHeroHealth) * width , yPos + height / 2],
+        points: [xPos, yPos + height / 2, xPos + (hero.attrs.health / initialHeroHealth) * width, yPos + height / 2],
         stroke: lifeColor,
         strokeWidth: 10
     });
@@ -311,5 +310,5 @@ function generateEnemy() {
             height: 122
         }]
     };
-    return loadChar(canvas.getWidth() - 70, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 200,30);
+    return loadChar(canvas.getWidth() - 70, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70, 200, 30);
 }
