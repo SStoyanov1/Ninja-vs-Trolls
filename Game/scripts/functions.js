@@ -12,17 +12,17 @@
 
     var nikiText = drawKineticText(300, 360, 'Trainer Niki', 24, 'Calibri', 'white', 380, 20, 'left');
 
-    var nikiRectangle = drawKineticRect(230, 360, '#fff', 5, "#fff", 'black', 140, 180);
+    var nikiRectangle = drawKineticRect(230, 360, '#fff', 5, "#fff", 'black', 140, 160);
     nikiRectangle.setCornerRadius(10);
 
     var donchoText = drawKineticText(300, 440, 'Trainer Doncho', 24, 'Calibri', '#555', 380, 20, 'left');
 
-    var donchoRectangle = drawKineticRect(410, 360, '#fff', 5, '#ddd', 'black', 140, 180);
+    var donchoRectangle = drawKineticRect(410, 360, '#fff', 5, '#ddd', 'black', 140, 160);
     donchoRectangle.setCornerRadius(10);
 
     var ivoText = drawKineticText(199, 200, 'Trainer Ivo', 24, 'Calibri', '#555', 380, 20, 'left');
 
-    var ivoRectangle = drawKineticRect(590, 360, '#fff', 5, '#ddd', 'black', 140, 180);
+    var ivoRectangle = drawKineticRect(590, 360, '#fff', 5, '#ddd', 'black', 140, 160);
     ivoRectangle.setCornerRadius(10);
 
     var nikiImage = new Image();
@@ -41,6 +41,12 @@
 
         nikiImg.on('mouseout', function () {
             document.body.style.cursor = 'default';
+        });
+
+        nikiImg.on('click', function () {
+            removeIntro();
+            //drawDojo();
+            startGame('donchoSprite.png');
         });
 
         field.add(nikiImg);
@@ -66,6 +72,12 @@
             document.body.style.cursor = 'default';
         });
 
+        donchoImg.on('click', function () {
+            removeIntro();
+            //drawDojo();
+            startGame('donchoSprite.png');
+        });
+
         field.add(donchoImg);
 
         canvas.add(field);
@@ -83,10 +95,17 @@
 
         ivoImg.on('mouseover', function () {
             document.body.style.cursor = 'pointer';
+
         });
 
         ivoImg.on('mouseout', function () {
             document.body.style.cursor = 'default';
+        });
+
+        ivoImg.on('click', function () {
+            removeIntro();
+            //drawDojo();
+            startGame('donchoSprite.png');
         });
 
         field.add(ivoImg);
@@ -119,20 +138,6 @@
             startGame('donchoSprite.png');
         });
     }
-
-    //donchoText.on('click', function () {
-    //    removeIntro();
-    //    //drawDojo();
-    //    startGame('donchoSprite.png');
-    //});
-    //
-    //
-    //
-    //ivoText.on('click', function () {
-    //    removeIntro();
-    //    //drawDojo();
-    //    startGame('ivoSprite.png');
-    //});
 
     // add the shapes to the layer
     field.add(introRectangle);
