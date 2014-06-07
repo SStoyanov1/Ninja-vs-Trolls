@@ -63,13 +63,13 @@
             }]
         };
 
-        var hero = loadChar(canvas.getWidth() / 2, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations);
-
+        var hero = loadChar(canvas.getWidth() / 2, canvas.getHeight() - 120, "http://www.html5canvastutorials.com/demos/assets/blob-sprite.png", animations, 70);
+        var enemies = generateEnemies();
         // http://codepen.io/Umarashidiqi/pen/brphk
 
         function main() {
             update((Date.now() - time) / 1000);
-            render();
+            //render();
             time = Date.now();
             requestAnimationFrame(main);
         }

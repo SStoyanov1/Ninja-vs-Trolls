@@ -20,11 +20,18 @@ window.addEventListener('keyup', function (e) {
 function update(mod) {
     if (37 in keysDown) {
         hero.attrs.x -= gameSpeed * mod;
-    }
 
+        if (hero.attrs.x < 0) {
+            hero.attrs.x = 0;
+        }
+    }
 
     if (39 in keysDown) {
         hero.attrs.x += gameSpeed * mod;
+
+        if (hero.attrs.x > canvas.getWidth() - hero.attrs.totalWidth) {
+            hero.attrs.x = canvas.getWidth() - hero.attrs.totalWidth;
+        }
     }
 
     if (32 in keysDown) {
@@ -39,37 +46,38 @@ function render() {
     //field.clear();
 }
 
-function loadChar(posX, posY, imageSrc, animations) {
-    var imageObj = new Image();
-
-    imageObj.onload = function () {
-        hero = createCharSprite(posX, posY, imageObj);
-    }
-
+function loadChar(posX, posY, imageSrc, animations, charWidth) {
+    var imageObj = new Image()
     imageObj.src = imageSrc;
 
     function createCharSprite() {
-        var char = new Kinetic.Sprite({
+        var sprite = new Kinetic.Sprite({
             x: posX,
             y: posY,
             image: imageObj,
             animation: 'idle',
             animations: animations,
             frameRate: 50,
+            totalWidth: charWidth,
             index: 0
         });
 
         //// add the shape to the layer
-        field.add(char);
+        field.add(sprite);
 
         //// add the layer to the stage
         canvas.add(field);
 
         //// start sprite animation
-        char.start();
+        sprite.start();
 
-        return char;
+        return sprite;
     }
+
+    return createCharSprite();
 }
 
 
+function generateEnemies() {
+
+}
