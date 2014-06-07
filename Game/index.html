@@ -3,24 +3,92 @@
 <head>
     <title>TO DO TITLE</title>
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="scripts/kinetic-v4.4.3.min.js"></script>
 </head>
 <body>
     <svg id="backgroundSvg">
         <image xlink:href="telerik.png" x="0" y="0" width="1000px" height="700px"></image>
     </svg>
-    <canvas id="gameField"></canvas>
+    <div id="gameField"></div>
     <script src="scripts/functions.js"></script>
     <script>
-        var canvas = document.getElementById('gameField'),
-            field = canvas.getContext('2d'),
-            time = Date.now(),
-            game = {
-                images: 0,
-                imagesLoaded: 0,
-            }
+        var canvas = new Kinetic.Stage({
+            container: 'gameField',
+            width: 1000,
+            height: 700
+        }),
+        field = new Kinetic.Layer(),
+        time = Date.now(),
+        gameSpeed = 300;
+        //game = {
+        //    images: 0,
+        //    imagesLoaded: 0,
+        //}
 
-        canvas.width = 1000;
-        canvas.height = 700;
+        var animations = {
+            idle: [{
+                x: 2,
+                y: 2,
+                width: 70,
+                height: 119
+            }, {
+                x: 71,
+                y: 2,
+                width: 74,
+                height: 119
+            }, {
+                x: 146,
+                y: 2,
+                width: 81,
+                height: 119
+            }, {
+                x: 226,
+                y: 2,
+                width: 76,
+                height: 119
+            }],
+            punch: [{
+                x: 2,
+                y: 138,
+                width: 74,
+                height: 122
+            }, {
+                x: 76,
+                y: 138,
+                width: 84,
+                height: 122
+            }, {
+                x: 346,
+                y: 138,
+                width: 120,
+                height: 122
+            }]
+        };
+
+        var imageObj = new Image();
+        var hero = "";
+        imageObj.onload = function () {
+            hero = new Kinetic.Sprite({
+                x: canvas.getWidth() / 2,
+                y: canvas.getHeight() - 120,
+                image: imageObj,
+                animation: 'idle',
+                animations: animations,
+                frameRate: 50,
+                index: 0
+            });
+
+            //// add the shape to the layer
+            field.add(hero);
+
+            //// add the layer to the stage
+            canvas.add(field);
+
+            //// start sprite animation
+            hero.start();
+        };
+
+        imageObj.src = 'http://www.html5canvastutorials.com/demos/assets/blob-sprite.png';
 
         //var mySprite = {
         //    width: 50,
@@ -31,26 +99,23 @@
         //    color: '#c00'
         //};
 
-        //Test
-
-        var spriteTiles = new Tileset('nikisprite2.png', 330, 270);
-        var spriteLeftAnim = new Animation(spriteTiles, ['3,0', '2,0', '1,0', '0,0'], 50);
-        var spriteRightAnim = new Animation(spriteTiles, ['0,1', '1,1', '2,1', '3,1'], 50);
-        var player = new Sprite({ 'left': spriteLeftAnim, 'right': spriteRightAnim }, 'right', canvas.width / 2, canvas.height - spriteTiles.tileHeight, 330, 270, 500);
+        //var spriteTiles = new Tileset('nikisprite2.png', 330, 270);
+        //var spriteLeftAnim = new Animation(spriteTiles, ['3,0', '2,0', '1,0', '0,0'], 50);
+        //var spriteRightAnim = new Animation(spriteTiles, ['0,1', '1,1', '2,1', '3,1'], 50);
+        //var player = new Sprite({ 'left': spriteLeftAnim, 'right': spriteRightAnim }, 'right', canvas.width / 2, canvas.height - spriteTiles.tileHeight, 330, 270, 500);
 
         // http://codepen.io/Umarashidiqi/pen/brphk
 
-        function run() {
+        function main() {
             update((Date.now() - time) / 1000);
-            if (game.images == game.imagesLoaded) {
-                render();
-            }
-
+            render();
             time = Date.now();
-            requestAnimationFrame(run);
+            requestAnimationFrame(main);
         }
 
-        run();
+        main();
     </script>
 </body>
 </html>
+
+
