@@ -14,113 +14,56 @@ window.addEventListener('keyup', function (e) {
 function update(mod) {
     if (37 in keysDown) {
         hero.attrs.x -= gameSpeed * mod;
-        //player.currentState = 'left';
-        //player.x -= player.speed * mod;
-        //updateAnimation(player.stateAnimations[player.currentState]);
     }
-    else if (39 in keysDown) {
+
+
+    if (39 in keysDown) {
         hero.attrs.x += gameSpeed * mod;
-        //player.currentState = 'right';
-        //player.x += player.speed * mod;
-        //updateAnimation(player.stateAnimations[player.currentState]);
-    } else if (32 in keysDown) {
+    }
+
+    if (32 in keysDown) {
         hero.setAnimation('punch');
         hero.afterFrame(2, function () {
             hero.setAnimation('idle');
         });
     }
-
-    //if (37 in keysDown) { //left
-    //    mySprite.x -= mySprite.speed * mod;
-
-    //    if (mySprite.x < 0) {
-    //        mySprite.x = 0;
-    //    }
-    //}
-
-    //if (39 in keysDown) { //right
-    //    mySprite.x += mySprite.speed * mod;
-
-    //    if (mySprite.x > canvas.width - mySprite.width) {
-    //        mySprite.x = canvas.width - mySprite.width;
-    //    }
-    //}
-
-    //if (40 in keysDown) { //down
-    //    mySprite.y += mySprite.speed * mod;return;
-    //}
-
-    //if (38 in keysDown) { //up
-    //    mySprite.y -= mySprite.speed * mod;
-    //}
 }
 
 function render() {
-    //field.clearRect(0, 0, canvas.width, canvas.height);
-    field.clear();
-    // add the shape to the layer
-    //field.add(hero);
-
-    // add the layer to the stage
-    //canvas.add(field);
-
-    // start sprite animation
-    //hero.start();
-    //drawSprite(player);
-    //field.fillStyle = mySprite.color;
-    //field.fillRect(mySprite.x, mySprite.y, mySprite.width, mySprite.height);
+    //field.clear();
 }
 
-//function imageLoaded() {
-//    game.imagesLoaded++;
-//}
+function loadChar(posX, posY, imageSrc, animations) {
+    var imageObj = new Image();
 
-//function Tileset(image, tileWidth, tileHeight) {
-//    this.image = new Image();
-//    game.images++;
-//    this.image.onload = imageLoaded;
-//    this.image.src = image;
-//    this.tileWidth = tileWidth;
-//    this.tileHeight = tileHeight;
-//}
+    imageObj.onload = function () {
+        hero = createCharSprite(posX, posY, imageObj);
+    }
 
-//function Animation(tileset, frames, frameDuration) {
-//    this.tileset = tileset;
-//    this.frames = frames;
-//    this.currentFrame = 0;
-//    this.frameTimer = Date.now();
-//    this.frameDuration = frameDuration;
-//}
+    imageObj.src = imageSrc;
 
-//function updateAnimation(anim) {
-//    if (Date.now() - anim.frameTimer > anim.frameDuration) {
-//        if (anim.currentFrame < anim.frames.length - 1) anim.currentFrame++;
-//        else anim.currentFrame = 0;
-//        anim.frameTimer = Date.now();
-//    }
-//}
+    function createCharSprite() {
+        var char = new Kinetic.Sprite({
+            x: posX,
+            y: posY,
+            image: imageObj,
+            animation: 'idle',
+            animations: animations,
+            frameRate: 50,
+            index: 0
+        });
 
-//function Sprite(stateAnimations, startingState, x, y, width, height, speed) {
-//    this.stateAnimations = stateAnimations;
-//    this.currentState = startingState;
-//    this.x = x;
-//    this.y = y;
-//    this.width = width;
-//    this.height = height;
-//    this.speed = speed;
-//}
+        //// add the shape to the layer
+        field.add(char);
 
-//function drawSprite(sprite) {
-//    field.drawImage(
-//        sprite.stateAnimations[sprite.currentState].tileset.image,
-//        sprite.stateAnimations[sprite.currentState].frames[sprite.stateAnimations[sprite.currentState].currentFrame].split(',')[0] * sprite.stateAnimations[sprite.currentState].tileset.tileWidth,
-//        sprite.stateAnimations[sprite.currentState].frames[sprite.stateAnimations[sprite.currentState].currentFrame].split(',')[1] * sprite.stateAnimations[sprite.currentState].tileset.tileHeight,
-//        sprite.stateAnimations[sprite.currentState].tileset.tileWidth,
-//        sprite.stateAnimations[sprite.currentState].tileset.tileHeight,
-//        Math.round(sprite.x),
-//        Math.round(sprite.y),
-//        sprite.width,
-//        sprite.height
-//    );
-//}
+        //// add the layer to the stage
+        canvas.add(field);
+
+        //// start sprite animation
+        char.start();
+
+        return char;
+    }
+}
+
 
