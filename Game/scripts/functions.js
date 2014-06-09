@@ -45,7 +45,7 @@
 
         nikiImg.on('click', function () {
             removeIntro();
-            //drawDojo();
+            drawDojo();
             startGame('donchoSprite.png');
         });
 
@@ -66,15 +66,19 @@
 
         donchoImg.on('mouseover', function () {
             document.body.style.cursor = 'pointer';
+            donchoRectangle.attrs.stroke = "yellowgreen";
+            field.draw();
         });
 
         donchoImg.on('mouseout', function () {
             document.body.style.cursor = 'default';
+            donchoRectangle.attrs.stroke = "white";
+            field.draw();
         });
 
         donchoImg.on('click', function () {
             removeIntro();
-            //drawDojo();
+            drawDojo();
             startGame('donchoSprite.png');
         });
 
@@ -104,7 +108,7 @@
 
         ivoImg.on('click', function () {
             removeIntro();
-            //drawDojo();
+            drawDojo();
             startGame('donchoSprite.png');
         });
 
@@ -134,7 +138,7 @@
 
         rectangles[i].on('click', function () {
             removeIntro();
-            //drawDojo();
+            drawDojo();
             startGame('donchoSprite.png');
         });
     }
@@ -159,8 +163,9 @@
     }
 
     function removeElement(element) {
-        var elementToRemove = element;
-        elementToRemove.parentNode.removeChild(elementToRemove);
+        element.outerHTML = "";
+        //var elementToRemove = element;
+        //elementToRemove.parentNode.removeChild(elementToRemove);
     }
 
 

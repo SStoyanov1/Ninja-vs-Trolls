@@ -1,0 +1,17 @@
+﻿body {
+    background: #333;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+svg, #svgSpot {
+    width: 1000px;
+    height: 700px;
+    position: absolute;
+}
+
+#gameField {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+}
