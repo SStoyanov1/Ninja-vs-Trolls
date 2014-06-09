@@ -10,8 +10,8 @@
     that.difficultyLevel = 100;
     that.maxDifficulty = 30; //Less = Harder
     that.keyPressed = {};
-    that.defaultHeroHealth = 500;
-    that.defaultEnemieHealth = 50;
+    that.defaultHeroHealth = 1000;
+    that.defaultEnemieHealth = 10;
     that.enemieSprite = "images/blob.png";
     that.heroSprite = "images/blob.png";
     that.heroWidth = 100;
@@ -74,9 +74,11 @@
             var currEnemy = that.enemies[i];
 
             if (currEnemy.getX() <= that.hero.getX() + that.hero.width) {
+                //If the enemy is close he will start punching
                 currEnemy.character.setAnimation("punch");
                 hitHero();
             } else {
+                //Else normal walking
                 currEnemy.character.setAnimation("idle");
             }
         }
