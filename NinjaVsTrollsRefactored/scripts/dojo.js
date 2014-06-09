@@ -52,7 +52,7 @@
     var spin = Raphael.animation({
         transform: degree
     }, 5000).repeat(Infinity);
-    shurikenAnimate.animate(spin);
+    //shurikenAnimate.animate(spin);
 
     var windowOpacity = 0.4;
 
@@ -128,12 +128,11 @@
     textRightFlatC.attr("font-size", 50);
     textRightFlatC.attr("fill", "white");
 
-    var reverse = false;
-    var maskedHeadLeft = paper.image("images/headone.png", 250, 250, 50, 50).animate({ transform: "r-7200,220,200" }, 500000);
-    maskedHeadLeft.attr({ opacity: 0.5 });
+    //var maskedHeadLeft = paper.image("images/headone.png", 250, 250, 50, 50).animate({ transform: "r-7200,220,200" }, 500000);
+    //maskedHeadLeft.attr({ opacity: 0.5 });
 
-    var maskedHeadRight = paper.image("images/headone.png", 770, 250, 50, 50).animate({ transform: "r7200,770,200" }, 500000);
-    maskedHeadRight.attr({ opacity: 0.5 });
+    //var maskedHeadRight = paper.image("images/headone.png", 770, 250, 50, 50).animate({ transform: "r7200,770,200" }, 500000);
+    //maskedHeadRight.attr({ opacity: 0.5 });
 
     var tvSet = paper.image("images/tv.png", 350, 360, 300, 190);
     var tvAnimation = paper.image("images/animation.gif", 368, 377, 265, 133);
