@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ninja VS Trolls - Telerik Edition</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <script src="scripts/raphael.js"></script>
+    <script src="scripts/kinetic.js"></script>
+    <script src="scripts/gameClasses.js"></script>
+    <script src="scripts/gameFunctions.js"></script>
+    <script src="scripts/dojo.js"></script>
+</head>
+<body>
+    <div id="svgSpot">
+        <svg id="backgroundSvg">
+            <image xlink:href="images/telerik.png" x="0" y="0" width="1000px" height="700px"></image>
+        </svg>
+    </div>
+    <div id="gameField"></div>
+    <script>
+        var game = new Game(),
+            canvas = createField("gameField", 1000, 700);
+        drawStartPage();
+
+        function startGame(string) {
+            drawDojo(); // TOO SLOW
+            addKeyEventListeners(game);
+            game.field = canvas;
+            game.mainLayer = new Kinetic.Layer();
+            game.currentTime = Date.now();
+
+            // Create Hero
+            game.hero = new Character(game.getCenter(), game.getBottom(), game.heroSprite, heroAnimations(), game.defaultHeroHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed);
+
+            // Add Initial Enemy
+            game.enemies.push(generateEnemy());
+
+            function engine() {
+                if (game.heroAlive) {
+                    game.updateGame();
+                    game.increaseDifficulty();
+                    requestAnimationFrame(engine);
+                } else {
+                    alert("hero is dead" + game.killCount);
+                }
+            }
+
+            engine();
+        }
+    </script>
+</body>
+</html>

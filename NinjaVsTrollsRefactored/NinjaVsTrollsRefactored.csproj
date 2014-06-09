@@ -68,7 +68,7 @@
     <Content Include="images\trainerIvo.jpg" />
     <Content Include="images\trainerNiki.jpg" />
     <Content Include="images\tv.png" />
-    <Content Include="index.html" />
+    <Content Include="index2.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -79,6 +79,7 @@
   <ItemGroup>
     <Content Include="css\styles.css" />
     <Content Include="images\telerik.png" />
+    <Content Include="index.html" />
     <Content Include="scripts\dojo.js" />
     <Content Include="scripts\gameClasses.js" />
     <Content Include="scripts\gameFunctions.js" />
