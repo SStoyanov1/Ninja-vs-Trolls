@@ -88,6 +88,9 @@
     <Content Include="telerik-left.png" />
     <Content Include="telerik-right.png" />
     <Content Include="telerik.png" />
+    <Content Include="trainerDoncho.jpg" />
+    <Content Include="trainerIvo.jpg" />
+    <Content Include="trainerNiki.jpg" />
     <Content Include="tv.png" />
     <Content Include="Web.config" />
   </ItemGroup>
