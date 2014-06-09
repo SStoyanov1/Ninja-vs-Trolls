@@ -210,6 +210,16 @@
     wallSeparateOneS.attr("stroke", "");
     wallSeparateOneS.attr("stroke-width", 0);
 
+    var wallSeparateTwoT = paper.rect(998, 0, 1, 549);
+    wallSeparateTwoT.attr("fill", "SaddleBrown");
+    wallSeparateTwoT.attr("stroke", "");
+    wallSeparateTwoT.attr("stroke-width", 0);
+
+    var wallSeparateOneT = paper.rect(1000, 0, 1, 549);
+    wallSeparateOneT.attr("fill", "Sienna");
+    wallSeparateOneT.attr("stroke", "");
+    wallSeparateOneT.attr("stroke-width", 0);
+
     var telerikSeenFromLeft = paper.image("images/telerik-left.png", 100, 100, 250, 210);
     var telerikSeenFromRight = paper.image("images/telerik-right.png", 650, 100, 250, 210);
 
