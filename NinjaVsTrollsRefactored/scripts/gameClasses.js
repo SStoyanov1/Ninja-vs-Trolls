@@ -20,6 +20,7 @@
     that.killCount = 0;
     that.framesCount = 0;
     that.generatedEnemies = 0;
+    that.heroDamage = 50;
 
     that.getCenter = function () {
         return that.field.getWidth() / 2
@@ -55,8 +56,6 @@
 
         // Hit
         if (that.keyPressed[32]) { // 32 = space/hit
-            var prevAnimation = that.hero.character.getAnimation().toString();
-            console.log(prevAnimation);
             that.hero.character.setAnimation('punch');
 
             // Hit enemy if possible
@@ -69,7 +68,6 @@
             }
 
             that.hero.character.afterFrame(3, function () {
-                console.log(prevAnimation);
                 that.hero.character.setAnimation('right');
             });
         }
@@ -113,7 +111,7 @@
             var currEnemy = that.enemies[enemyIndex];
 
             if (currEnemy.health > 0) {
-                currEnemy.health--;
+                currEnemy.health -= that.heroDamage;
             }
             else {
                 that.killCount++;
