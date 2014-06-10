@@ -115,7 +115,7 @@ function GetEnemySprite() {
 
 // I've created a function for the enemyAnimations since the sprite for the trolls has just one direction and the one for the trainers has 2 directions now
 function generateEnemy() {
-    return new Character(game.field.getWidth(), game.getBottom(), game.enemieSprite, enemyAnimations(), game.defaultEnemieHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed)
+    return new Character(game.field.getWidth(), game.getBottom(), GetEnemySprite(), enemyAnimations(), game.defaultEnemieHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed)
 }
 
 function drawStartPage() {
