@@ -15,7 +15,7 @@
    // that.enemieSprite = "images/blob.png";
    // that.heroSprite = "images/blob.png";
     that.heroWidth = 230;
-    that.spriteHeight = 170;
+    that.spriteHeight = 183;
     that.heroAlive = true;
     that.killCount = 0;
     that.framesCount = 0;

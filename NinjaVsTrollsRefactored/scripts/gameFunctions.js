@@ -26,18 +26,18 @@ function addKeyEventListeners(gameObject) {
 // both directions for the trainers' sprites are set and workng properly but had to put one in comments since I couldn't figure out how to change the direction
 function heroAnimations() {
     var animations = {
-        idle: [{
+        idle: [/*{
             x: 920,
             y: 0,
             width: 230,
             height: 200
-        }, /*{
+        }, */{
             x: 0,
             y: 200,
             width: 230,
             height: 200
-        }*/],
-        punch: [{
+        }],
+        punch: [/*{
             x: 690,
             y: 0,
             width: 230,
@@ -57,7 +57,7 @@ function heroAnimations() {
             y: 0,
             width: 230,
             height: 200
-        }, /*{
+        }, */{
             x: 230,
             y: 200,
             width: 230,
@@ -77,7 +77,7 @@ function heroAnimations() {
             y: 200,
             width: 230,
             height: 200
-        }*/]
+        }]
     };
 
     return animations;
