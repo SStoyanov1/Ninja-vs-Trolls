@@ -29,7 +29,7 @@
             game.currentTime = Date.now();
 
             // Create Hero
-            game.hero = new Character(game.getCenter(), game.getBottom(), game.heroSprite, heroAnimations(), game.defaultHeroHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed);
+            game.hero = new Character(game.getCenter(), game.getBottom(), string, /*game.heroSprite, */heroAnimations(), game.defaultHeroHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed);
 
             // Add Initial Enemy
             game.enemies.push(generateEnemy());

@@ -12,10 +12,10 @@
     that.keyPressed = {};
     that.defaultHeroHealth = 1000;
     that.defaultEnemieHealth = 10;
-    that.enemieSprite = "images/blob.png";
-    that.heroSprite = "images/blob.png";
-    that.heroWidth = 100;
-    that.spriteHeight = 120;
+   // that.enemieSprite = "images/blob.png";
+   // that.heroSprite = "images/blob.png";
+    that.heroWidth = 230;
+    that.spriteHeight = 170;
     that.heroAlive = true;
     that.killCount = 0;
     that.framesCount = 0;

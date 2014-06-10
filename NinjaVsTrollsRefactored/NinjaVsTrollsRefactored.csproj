@@ -59,7 +59,14 @@
   <ItemGroup>
     <Content Include="images\animation.gif" />
     <Content Include="images\blob.png" />
+    <Content Include="images\donchoSprite.png" />
+    <Content Include="images\fighting-troll-sprite-to-left.png" />
+    <Content Include="images\fighting-troll-sprite.png" />
     <Content Include="images\headone.png" />
+    <Content Include="images\idiot-troll-sprite-to-left.png" />
+    <Content Include="images\idiot-troll-sprite.png" />
+    <Content Include="images\ivoSprite.png" />
+    <Content Include="images\nikiSprite.png" />
     <Content Include="images\shuriken.png" />
     <Content Include="images\super_ninja_for_frame.png" />
     <Content Include="images\telerik-left.png" />
