@@ -12,10 +12,10 @@
     that.keyPressed = {};
     that.defaultHeroHealth = 1000;
     that.defaultEnemieHealth = 10;
-   // that.enemieSprite = "images/blob.png";
-   // that.heroSprite = "images/blob.png";
-    that.heroWidth = 230;
-    that.spriteHeight = 183;
+    that.enemieSprite = "images/blob.png";
+    that.heroSprite = "images/blob.png";
+    that.heroWidth = 100;
+    that.spriteHeight = 200;
     that.heroAlive = true;
     that.killCount = 0;
     that.framesCount = 0;
@@ -35,6 +35,7 @@
 
         // Move Left
         if (that.keyPressed[37]) { // 37 = left
+            //that.hero.character.setAnimation('left');
             that.hero.setX(that.hero.getX() - that.speed * modifier);
 
             if (that.hero.getX() < 0) {
@@ -44,6 +45,7 @@
 
         // Move Right
         if (that.keyPressed[39]) { // 39 = right
+            //that.hero.character.setAnimation('right');
             that.hero.setX(that.hero.getX() + that.speed * modifier);
 
             if (that.hero.getX() > that.field.getWidth() - that.hero.width) {
@@ -53,6 +55,8 @@
 
         // Hit
         if (that.keyPressed[32]) { // 32 = space/hit
+            var prevAnimation = that.hero.character.getAnimation().toString();
+            console.log(prevAnimation);
             that.hero.character.setAnimation('punch');
 
             // Hit enemy if possible
@@ -64,8 +68,9 @@
                 }
             }
 
-            that.hero.character.afterFrame(2, function () {
-                that.hero.character.setAnimation('idle');
+            that.hero.character.afterFrame(3, function () {
+                console.log(prevAnimation);
+                that.hero.character.setAnimation('right');
             });
         }
 
@@ -79,7 +84,7 @@
                 hitHero();
             } else {
                 //Else normal walking
-                currEnemy.character.setAnimation("idle");
+                currEnemy.character.setAnimation("right");
             }
         }
 
@@ -161,10 +166,9 @@ function Character(posX, posY, spriteSrc, animationsObj, characterHealth, charac
             x: posX,
             y: posY,
             image: imageObj,
-            animation: 'idle',
+            animation: 'right',
             animations: animationsObj,
-            frameRate: animationSpeed,
-            index: 0
+            frameRate: animationSpeed
         });
 
         //// add the shape to the layer

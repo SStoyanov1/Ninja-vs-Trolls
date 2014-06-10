@@ -27,6 +27,8 @@
             game.field = canvas;
             game.mainLayer = new Kinetic.Layer();
             game.currentTime = Date.now();
+            game.heroSprite = string;
+            game.enemieSprite = GetEnemySprite();
 
             // Create Hero
             game.hero = new Character(game.getCenter(), game.getBottom(), game.heroSprite, heroAnimations(), game.defaultHeroHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed);

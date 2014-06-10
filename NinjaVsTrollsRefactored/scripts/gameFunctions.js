@@ -26,38 +26,19 @@ function addKeyEventListeners(gameObject) {
 // both directions for the trainers' sprites are set and workng properly but had to put one in comments since I couldn't figure out how to change the direction
 function heroAnimations() {
     var animations = {
-        idle: [/*{
-            x: 920,
+        left: [{
+            x: 0,
             y: 0,
             width: 230,
             height: 200
-        }, */{
+        }],
+        right: [{
             x: 0,
             y: 200,
             width: 230,
             height: 200
         }],
-        punch: [/*{
-            x: 690,
-            y: 0,
-            width: 230,
-            height: 200
-        }, {
-            x: 460,
-            y: 0,
-            width: 230,
-            height: 200
-        }, {
-            x: 230,
-            y: 0,
-            width: 230,
-            height: 200
-        }, {
-            x: 0,
-            y: 0,
-            width: 230,
-            height: 200
-        }, */{
+        punch: [{
             x: 230,
             y: 200,
             width: 230,
@@ -85,7 +66,7 @@ function heroAnimations() {
 
 function enemyAnimations() {
     var animations = {
-        idle: [{
+        right: [{
             x: 0,
             y: 0,
             width: 230,
@@ -134,7 +115,7 @@ function GetEnemySprite() {
 
 // I've created a function for the enemyAnimations since the sprite for the trolls has just one direction and the one for the trainers has 2 directions now
 function generateEnemy() {
-    return new Character(game.field.getWidth(), game.getBottom(), /* game.enemieSprite*/ GetEnemySprite(), enemyAnimations(), /*heroAnimations(), */game.defaultEnemieHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed)
+    return new Character(game.field.getWidth(), game.getBottom(), game.enemieSprite, enemyAnimations(), game.defaultEnemieHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed)
 }
 
 function drawStartPage() {
