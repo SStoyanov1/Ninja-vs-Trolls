@@ -26,6 +26,23 @@
             addKeyEventListeners(game);
             game.field = canvas;
             game.mainLayer = new Kinetic.Layer();
+            var healthBarText = new Kinetic.Text({
+                x: 0,
+                y: 35,
+                text: "HP",
+                fill: "white"
+            });
+            var healthBar = new Kinetic.Rect({
+                x: 20,
+                y: 35,
+                width: 975,
+                height: 10,
+                fill: "green",
+                stroke: "white",
+                strokeWidth: 1
+            });
+            game.mainLayer.add(healthBar);
+            game.mainLayer.add(healthBarText);
             game.currentTime = Date.now();
 
             // Create Hero
@@ -38,6 +55,9 @@
                 if (game.heroAlive) {
                     game.updateGame();
                     game.increaseDifficulty();
+                    //game.hero.health
+                    console.log(game.hero.health);
+                    healthBar.setWidth(game.hero.health);
                     requestAnimationFrame(engine);
                 } else {
                     alert("hero is dead" + game.killCount);
