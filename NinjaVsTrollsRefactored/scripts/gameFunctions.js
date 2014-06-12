@@ -301,3 +301,9 @@ function drawStartPage() {
         return kineticText;
     };
 }
+
+function endGame() {
+    var gameOverImage = document.getElementById('game-over');
+    gameOverImage.style.display = 'block';
+    svg.style.display = 'none';
+}

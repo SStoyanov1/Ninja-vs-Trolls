@@ -15,7 +15,9 @@
             <image xlink:href="images/telerik.png" x="0" y="0" width="1000px" height="700px"></image>
         </svg>
     </div>
-    <div id="gameField"></div>
+    <div id="gameField">
+        <img id="game-over" src="images/gameover.png" width="300" />
+    </div>
     <script>
         var game = new Game(),
             canvas = createField("gameField", 1000, 700);
@@ -59,7 +61,7 @@
                     healthBar.setWidth(game.hero.health);
                     requestAnimationFrame(engine);
                 } else {
-                    alert("hero is dead" + game.killCount);
+                    endGame();
                 }
             }
 
