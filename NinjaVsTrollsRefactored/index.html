@@ -16,6 +16,7 @@
         </svg>
     </div>
     <div id="gameField">
+        <img id="game-over" src="images/gameover.png" width="300" />
     </div>
     <script>
         var game = new Game(),
@@ -61,7 +62,8 @@
                     healthBar.setWidth(game.hero.health);
                     requestAnimationFrame(engine);
                 } else {
-                    alert("hero is dead" + game.killCount);
+                    game.destroyAllEnemies();
+                    endGame();
                 }
             }
 

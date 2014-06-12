@@ -141,6 +141,15 @@
 
         that.framesCount++;
     }
+
+    that.destroyAllEnemies = function () {
+        for (var i = 0; i < that.enemies.length; i++) {
+            var enemyToRemove = that.enemies[i];
+
+            enemyToRemove.character.destroy();
+            //that.enemies.splice(i, 1);
+        }
+    }
 }
 
 function Character(posX, posY, spriteSrc, animationsObj, characterHealth, characterWidth, layer, stage, animationSpeed) {

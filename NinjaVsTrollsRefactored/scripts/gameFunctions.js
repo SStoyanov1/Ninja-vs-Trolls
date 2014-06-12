@@ -304,6 +304,7 @@ function drawStartPage() {
 
 function endGame() {
     var gameOverImage = document.getElementById('game-over');
+    var svg = document.getElementById('svgSpot');
     gameOverImage.style.display = 'block';
     svg.style.display = 'none';
 }
