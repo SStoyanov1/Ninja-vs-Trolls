@@ -62,6 +62,7 @@
                         healthBar.setWidth(game.hero.health);
                         requestAnimationFrame(engine);
                     } else {
+                        game.destroyAllEnemies();
                         endGame();
                     }
                 }

@@ -122,8 +122,6 @@
             }
             else {
                 that.killCount++;
-                var scoreDiv = document.getElementById('scoreHolder');
-                scoreDiv.innerHTML = that.killCount;
                 currEnemy.character.destroy();
                 that.enemies.splice(enemyIndex, 1);
             }
