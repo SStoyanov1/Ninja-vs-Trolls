@@ -1,4 +1,6 @@
-﻿function createField(fieldName, fieldWidth, fieldHeight) {
+﻿/// <reference path="gameClasses.js" />
+
+function createField(fieldName, fieldWidth, fieldHeight) {
     var field = new Kinetic.Stage({
         container: fieldName,
         width: fieldWidth,
@@ -306,5 +308,9 @@ function endGame() {
     var gameOverImage = document.getElementById('game-over');
     var svg = document.getElementById('svgSpot');
     gameOverImage.style.display = 'block';
+    var gameOverMessageDiv = document.createElement('div');
+    gameOverMessageDiv.setAttribute("id", "game-over-mess-div");
+    gameOverMessageDiv.innerHTML = 'You have killed ' + Game.killCount + ' trolls!';
     svg.style.display = 'none';
+    document.getElementById('gameField').appendChild(gameOverMessageDiv);
 }
