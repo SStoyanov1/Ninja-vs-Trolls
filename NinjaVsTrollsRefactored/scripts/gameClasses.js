@@ -23,11 +23,18 @@
     that.heroDamage = 50;
 
     that.getCenter = function () {
-        return that.field.getWidth() / 2
+        return that.field.getWidth() / 2;
     };
 
     that.getBottom = function () {
         return that.field.getHeight() - that.spriteHeight;
+    };
+
+    that.getKillCount = function () {
+        var scoreDiv = document.getElementById('scoreHolder');
+        var returnedScore = scoreDiv.textContent;
+        console.log(returnedScore);
+        return returnedScore;
     };
 
     that.updateGame = function () {
@@ -115,6 +122,8 @@
             }
             else {
                 that.killCount++;
+                var scoreDiv = document.getElementById('scoreHolder');
+                scoreDiv.innerHTML = that.killCount;
                 currEnemy.character.destroy();
                 that.enemies.splice(enemyIndex, 1);
             }

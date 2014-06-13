@@ -9,64 +9,66 @@
     <script src="scripts/gameFunctions.js"></script>
     <script src="scripts/dojo.js"></script>
 </head>
-<body>
-    <div id="svgSpot">
-        <svg id="backgroundSvg">
-            <image xlink:href="images/telerik.png" x="0" y="0" width="1000px" height="700px"></image>
-        </svg>
-    </div>
-    <div id="gameField">
-        <img id="game-over" src="images/gameover.png" width="300" />
-    </div>
-    <script>
-        var game = new Game(),
-            canvas = createField("gameField", 1000, 700);
-        drawStartPage();
+    <body>
+        <div id="scoreHolder" style="visibility: hidden"></div>
+        <div id="svgSpot">
+            <svg id="backgroundSvg">
+                <image xlink:href="images/telerik.png" x="0" y="0" width="1000px" height="700px"></image>
+            </svg>
+        </div>
+        <div id="gameField">
+            <img id="game-over" src="images/gameover.png" width="300" />
+        </div>
+        <script>
+            var game = new Game(),
+                canvas = createField("gameField", 1000, 700);
+            drawStartPage();
 
-        function startGame(string) {
-            drawDojo(); // TOO SLOW
-            addKeyEventListeners(game);
-            game.field = canvas;
-            game.mainLayer = new Kinetic.Layer();
-            var healthBarText = new Kinetic.Text({
-                x: 0,
-                y: 35,
-                text: "HP",
-                fill: "white"
-            });
-            var healthBar = new Kinetic.Rect({
-                x: 20,
-                y: 35,
-                width: 975,
-                height: 10,
-                fill: "green",
-                stroke: "white",
-                strokeWidth: 1
-            });
-            game.mainLayer.add(healthBar);
-            game.mainLayer.add(healthBarText);
-            game.currentTime = Date.now();
+            function startGame(string) {
+                drawDojo(); // TOO SLOW
+                addKeyEventListeners(game);
+                game.field = canvas;
+                game.mainLayer = new Kinetic.Layer();
+                var healthBarText = new Kinetic.Text({
+                    x: 0,
+                    y: 35,
+                    text: "HP",
+                    fill: "white"
+                });
+                var healthBar = new Kinetic.Rect({
+                    x: 20,
+                    y: 35,
+                    width: 975,
+                    height: 10,
+                    fill: "green",
+                    stroke: "white",
+                    strokeWidth: 1
+                });
+                game.mainLayer.add(healthBar);
+                game.mainLayer.add(healthBarText);
+                game.currentTime = Date.now();
 
-            // Create Hero
-            game.hero = new Character(game.getCenter(), game.getBottom(), string, /*game.heroSprite, */heroAnimations(), game.defaultHeroHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed);
+                // Create Hero
+                game.hero = new Character(game.getCenter(), game.getBottom(), string, /*game.heroSprite, */heroAnimations(), game.defaultHeroHealth, game.heroWidth, game.mainLayer, game.field, game.frameSpeed);
 
-            // Add Initial Enemy
-            game.enemies.push(generateEnemy());
+                // Add Initial Enemy
+                game.enemies.push(generateEnemy());
 
-            function engine() {
-                if (game.heroAlive) {
-                    game.updateGame();
-                    game.increaseDifficulty();
-                    //game.hero.health
-                    healthBar.setWidth(game.hero.health);
-                    requestAnimationFrame(engine);
-                } else {
-                    endGame();
+                function engine() {
+                    if (game.heroAlive) {
+                        game.updateGame();
+                        game.increaseDifficulty();
+                        //game.hero.health
+                        healthBar.setWidth(game.hero.health);
+                        requestAnimationFrame(engine);
+                    } else {
+                        endGame();
+                    }
                 }
-            }
 
-            engine();
-        }
-    </script>
-</body>
+                engine();
+            }
+        </script>
+        <div id="scoreHolder"></div>
+    </body>
 </html>

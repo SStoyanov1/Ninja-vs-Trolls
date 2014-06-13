@@ -310,7 +310,8 @@ function endGame() {
     gameOverImage.style.display = 'block';
     var gameOverMessageDiv = document.createElement('div');
     gameOverMessageDiv.setAttribute("id", "game-over-mess-div");
-    gameOverMessageDiv.innerHTML = 'You have killed ' + Game.killCount + ' trolls!';
+    var scoreDiv = document.getElementById('scoreHolder');
+    gameOverMessageDiv.innerHTML = 'You have killed ' + scoreDiv.textContent + ' trolls!';
     svg.style.display = 'none';
     document.getElementById('gameField').appendChild(gameOverMessageDiv);
 }
